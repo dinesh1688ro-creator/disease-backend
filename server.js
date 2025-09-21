@@ -8,16 +8,16 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// ----- ROOT ROUTE -----
+// ----- Root route -----
 app.get('/', (req, res) => {
     res.send('<h1>AI Chatbot Backend is Running!</h1><p>Use /getAnswer for API calls.</p>');
 });
 
-// ----- API ROUTE -----
+// ----- API route -----
 app.post('/getAnswer', (req, res) => {
     const { question } = req.body;
 
-    // Example response (replace with your AI logic)
+    // Example AI response (replace with your AI logic)
     let answer = "I don't know yet!";
     if (question) {
         answer = `You asked: "${question}". This is a sample response from the backend.`;
@@ -30,4 +30,3 @@ app.post('/getAnswer', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
