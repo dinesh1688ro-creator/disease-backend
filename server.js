@@ -5,15 +5,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors()); // allow all frontend domains
 app.use(express.json());
 
-// ----- Root route -----
+// Root route
 app.get('/', (req, res) => {
     res.send('<h1>AI Chatbot Backend is Running!</h1><p>Use /getAnswer for API calls.</p>');
 });
 
-// ----- API route -----
+// AI API route
 app.post('/getAnswer', (req, res) => {
     const { question } = req.body;
 
@@ -26,7 +26,4 @@ app.post('/getAnswer', (req, res) => {
     res.json({ answer });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+/
